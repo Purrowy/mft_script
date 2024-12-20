@@ -30,9 +30,8 @@ main() {
 }
 
 # return true if any file on path: $1 is older than number of days: $2
-check_date() {
-    local old_files=$(find $1 -type f -mtime +$2 | wc -l)
-    [ "$old_files" -gt 0 ]
+check_date() {    
+    [ $(find $1 -type f -mtime +$2 | wc -l) -gt 0 ]
 }
 
 # send a message about path: $1 to address: $2 and add info to log file
